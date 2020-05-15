@@ -1,0 +1,50 @@
+@import "../helpers/variables";
+@import "../helpers/mixins";
+
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+
+  @media only screen and (max-width: 576px) {
+    height: auto;
+  }
+}
+
+
+@keyframes float {
+
+  0%,
+  5% {
+    @include translate(0, 0rem);
+  }
+
+  95%,
+  100% {
+    @include translate(0, -.5rem);
+  }
+}
