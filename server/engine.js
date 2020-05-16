@@ -6,8 +6,8 @@ const {
   v4: uuidv4
 } = require('uuid');
 const randomstring = require('randomstring');
-
 const consola = require('consola')
+const Words = require('../common/words');
 
 const engine = {};
 engine.io = io;
@@ -48,8 +48,11 @@ io.on('connection', (socket) => {
     socket.gameCode = gameCode;
 
     console.info("Created: " + name);
+    const words = new Words('EASY');
     io.to(gameCode).emit(CONSTANTS.SOCKET.EMIT.CREATE_GAME, {
-      game: gameCode
+      game: gameCode,
+      words: words,
+      word: words.getWord()
     });
   });
 });
