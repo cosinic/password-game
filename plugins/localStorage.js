@@ -10,7 +10,7 @@ export default ({
       key: 'pwd_game',
       paths: [
         'user',
-        'game'
+        'game.code'
       ],
       storage: {
         getItem: (key) => Cookies.get(key),
