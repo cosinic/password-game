@@ -31,9 +31,7 @@ async function start() {
   }
 
   // Import main Game Engine
-  app.socketio = require('./engine');
-
-  app.set('port', port);
+  app.io = require('./engine');
 
   // Nuxt Middleware
   app.use(nuxt.render);

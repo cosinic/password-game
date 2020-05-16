@@ -169,8 +169,18 @@ module.exports = {
     lang: 'scss'
   }, ],
   plugins: [
-    '~/plugins/webFontLoader.client.js',
-    '~/plugins/socket.client.js',
+    {
+      src:
+        '~/plugins/webFontLoader.client.js',
+    },
+    {
+      src: '~/plugins/socket.io.js',
+      ssr: false,
+    },
+    {
+      src: '~/plugins/localStorage.js',
+      ssr: false
+    }
   ],
   modules: [
     '@nuxtjs/axios',

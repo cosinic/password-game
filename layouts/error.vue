@@ -4,7 +4,7 @@
         <div class="col-12 col-md-6">
             <b-card class="text-center">
                 <div v-if="error.statusCode === 404">
-                    <h1>Uh Oh</h1>
+                    <h1>404.</h1>
                     <p class="lead">
                         It looks like you came across a page that doesn't exist.
                         <br />
@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div v-else>
-                    <h1>Oops, something went wrong.</h1>                    
+                    <h1>ERROR.</h1>                    
                     <p class="lead">
                         This page is giving some kind of error.
                         <br />
