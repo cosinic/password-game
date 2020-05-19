@@ -4,6 +4,12 @@ const site_title = 'Password Game';
 const site_url = 'https://pwd.cosinic.com';
 const site_description = 'The Password Game, the guessing game with one word clues.';
 
+const locales = ['en'];
+const default_locale = 'en';
+const i18n_messages = {
+  en: require('./common/i18n/en'),
+}
+
 module.exports = {
   /*
    ** Headers of the page
@@ -189,6 +195,7 @@ module.exports = {
     }],
     '@nuxtjs/dotenv',
     'bootstrap-vue/nuxt',
+    'nuxt-i18n',
   ],
   /*
    ** Disable Bootstrap-Vue auto import CSS 
@@ -196,6 +203,19 @@ module.exports = {
   bootstrapVue: {
     bootstrapCSS: false, // Or `css: false`
     bootstrapVueCSS: false // Or `bvCSS: false`
+  },
+  /**
+   * i18n translations
+   */
+  i18n: {
+    locales: locales,
+    defaultLocale: default_locale,
+    vueI18n: {
+      fallbackLocale: default_locale,
+      messages: {
+        ...i18n_messages
+      }
+    }
   },
   /*
    ** Build configuration

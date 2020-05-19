@@ -4,7 +4,7 @@
       <b-card border-variant="primary" align="center" no-body>
         <template v-slot:header>
           <h1 class="mb-0">
-            Game Room: <span
+            {{ $t('ui.room') }} <span
               class="text-uppercase"
               v-if="gameCode"
               >{{ gameCode }}</span

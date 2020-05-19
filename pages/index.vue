@@ -3,7 +3,7 @@
     <div class="col-12 col-md-5 col-lg-4 col-xxl-3">
       <b-card border-variant="primary" align="center" no-body>
         <template v-slot:header>
-          <h1 class="mb-0">The Password Game</h1>
+          <h1 class="mb-0">{{ $t('ui.title') }}</h1>
         </template>
         <b-card-body class="text-left">
           <b-alert
@@ -24,7 +24,7 @@
             </b-input-group-prepend>
             <b-form-input
               v-model="name"
-              placeholder="Your Name"
+              :placeholder="$t('ui.placeholders.name')"
               class="text-uppercase"
               trim
               :formatter="formatter"
@@ -41,7 +41,7 @@
             </b-input-group-prepend>
             <b-form-input
               v-model="game"
-              placeholder="Game Code"
+              :placeholder="$t('ui.placeholders.code')"
               class="text-uppercase"
               trim
               :formatter="formatter"
@@ -56,7 +56,7 @@
                 class="text-uppercase w-100 font-weight-light"
                 size="lg"
                 @click="createGame"
-                >Create Game</b-button
+                >{{$t('ui.buttons.create')}}</b-button
               >
             </b-col>
             <b-col>
@@ -65,7 +65,7 @@
                 class="text-uppercase w-100 font-weight-light"
                 size="lg"
                 @click="joinGame"
-                >Join Game</b-button
+                >{{$t('ui.buttons.join')}}</b-button
               >
             </b-col>
           </b-row>
@@ -96,16 +96,16 @@ export default {
       if (this.name.length > 2 && this.name.length < 16) {
         return "";
       } else if (this.name.length > 0) {
-        return "Name must be at least 2 letters";
+        return this.$t('ui.errors.two_char_min');
       } else {
-        return "Please enter your name";
+        return this.$t('ui.errors.no_name');
       }
     },
     codeRules() {
       if (this.game.length === 4) {
         return "";
       } else {
-        return "Please enter 4 letter game code.";
+        return this.$t('ui.errors.no_code');
       }
     },
     showAlert() {
@@ -115,9 +115,9 @@ export default {
   mounted() {
     const { message } = this.$route.query;
     if (message === "noUser") {
-      this.message = "Please enter the info.";
+      this.message = this.$t('ui.errors.invalid_session');
     } else if (message === "leftGame") {
-      this.message = "You left the game.";
+      this.message = this.$t('ui.errors.left_game');
     }
 
     if (this[CONSTANTS.STORE.GETTERS.GET_GAME_CODE]) {
